@@ -1,0 +1,22 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Env files
+.env
+backend/.env
+frontend/.env
+
+# Frontend / Node
+frontend/node_modules/
+frontend/dist/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/

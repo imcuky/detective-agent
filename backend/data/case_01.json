@@ -1,0 +1,224 @@
+{
+  "case_id": "case_01",
+  "title": "The Midnight Ledger",
+  "public_intro": "At 11:15 PM, antiquarian Arthur Vance collapsed dead in the Study of Vance Manor minutes after the Study lights went out. A thunderstorm has cut the manor off from town until dawn. Three guests were inside the house: his niece Evelyn Vance, his physician Dr. Clara Thorne, and his business partner Marcus Sterling.",
+  "starting_room_id": "study",
+  "max_accusation_attempts": 2,
+  "rooms": [
+    {
+      "room_id": "study",
+      "name": "The Study",
+      "description": "A wood-paneled study smelling of old leather and cold rain. Arthur Vance lies motionless beside his oak desk; the overhead lamp has just flickered back on.",
+      "connected_rooms": ["conservatory", "cellar"],
+      "objects": [
+        {
+          "object_id": "oak_desk",
+          "name": "Arthur's Oak Desk",
+          "description": "A heavy oak desk strewn with ledger sheets and a chipped porcelain teacup of lukewarm Earl Grey.",
+          "inspect_text": "You lean close to the chipped teacup. Beneath the bergamot aroma of Earl Grey sits a sharp, unmistakable scent of bitter almonds, and a faint smudge of dark green laurel resin marks the rim.",
+          "unlocks_clue_id": "clue_poisoned_teacup"
+        },
+        {
+          "object_id": "brass_letter_opener",
+          "name": "Brass Letter Opener",
+          "description": "A slim brass letter opener resting neatly beside the blotter, freshly wiped.",
+          "inspect_text": "The handle is wiped spotless of prints, yet wedged beneath the dull tip are two microscopic splinters of varnished cedar—the kind used in small cabinet doors.",
+          "unlocks_clue_id": null
+        }
+      ]
+    },
+    {
+      "room_id": "conservatory",
+      "name": "The Conservatory",
+      "description": "A humid glasshouse filled with rare botanicals. Rain drums loudly against the arched panes.",
+      "connected_rooms": ["study"],
+      "objects": [
+        {
+          "object_id": "apothecary_cabinet",
+          "name": "Cedar Apothecary Cabinet",
+          "description": "Dr. Thorne's wall-mounted cedar cabinet holding botanical tinctures and extracts.",
+          "inspect_text": "The brass clasp has been forced open with a narrow flat blade, leaving fresh gouges in the cedar. One labeled vial of cherry-laurel extract is missing, and a torn thread of crimson silk is snagged on the latch.",
+          "unlocks_clue_id": "clue_broken_vial_clasp"
+        },
+        {
+          "object_id": "garden_doors",
+          "name": "Glass Garden Doors",
+          "description": "Double French doors leading out to the flooded terrace.",
+          "inspect_text": "Heavy iron slide-bolts at the top and bottom are firmly locked from the inside with unbroken dust on the latches. Nobody entered or left from outside.",
+          "unlocks_clue_id": null
+        }
+      ]
+    },
+    {
+      "room_id": "cellar",
+      "name": "The Wine Cellar & Fuse Room",
+      "description": "A damp stone cellar beneath the Study. Shelves of vintage bottles line one wall; an iron electrical breaker box hangs beside the stairs.",
+      "connected_rooms": ["study"],
+      "objects": [
+        {
+          "object_id": "breaker_box",
+          "name": "Electrical Breaker Box",
+          "description": "An open iron fuse panel with labeled switches for each wing of the manor.",
+          "inspect_text": "The breaker labeled 'STUDY' shows fresh scratch marks—it was manually thrown off and wedged with a crumpled invoice slip. Smoothing the paper reveals $50,000 in forged Vance Imports invoices signed 'M. Sterling'.",
+          "unlocks_clue_id": "clue_jammed_breaker"
+        },
+        {
+          "object_id": "wine_rack",
+          "name": "Dusty Wine Rack",
+          "description": "Rows of dusty Bordeaux bottles untouched in the gloom.",
+          "inspect_text": "A thick layer of undisturbed dust blankets every bottle. Whoever came down here had no interest in the wine.",
+          "unlocks_clue_id": null
+        }
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "clue_id": "clue_poisoned_teacup",
+      "title": "Bitter Almond Teacup",
+      "category": "physical",
+      "summary": "Arthur's Earl Grey teacup smells of bitter almonds and has dark green laurel resin near the rim, proving cyanide poisoning.",
+      "source_id": "oak_desk"
+    },
+    {
+      "clue_id": "clue_broken_vial_clasp",
+      "title": "Forced Apothecary Cabinet & Crimson Thread",
+      "category": "physical",
+      "summary": "Dr. Thorne's cedar cabinet was pried open with a slim blade; a vial of cherry-laurel cyanide is missing and a crimson silk thread is snagged on the latch.",
+      "source_id": "apothecary_cabinet"
+    },
+    {
+      "clue_id": "clue_jammed_breaker",
+      "title": "Sabotaged Study Breaker",
+      "category": "physical",
+      "summary": "The Study circuit breaker was deliberately wedged off with a forged $50,000 Vance Imports invoice signed by Marcus Sterling.",
+      "source_id": "breaker_box"
+    },
+    {
+      "clue_id": "clue_clara_testimony",
+      "title": "Clara's Toxicology Window",
+      "category": "testimony",
+      "summary": "Dr. Thorne confirms the laurel resin oxidizes in 20 minutes—meaning the tea was poisoned between 11:00 and 11:10 PM—and admits seeing a dark-coated figure hurry toward the cellar at 11:05 PM.",
+      "source_id": "npc_clara"
+    },
+    {
+      "clue_id": "clue_marcus_testimony",
+      "title": "Marcus's Eyewitness Confession",
+      "category": "testimony",
+      "summary": "Marcus confesses he cut the Study breaker at 11:05 PM only to steal his forged invoices, and swears that at 11:08 PM he saw Evelyn standing over a gasping Arthur wiping the brass letter opener and pocketing a glass vial.",
+      "source_id": "npc_marcus"
+    },
+    {
+      "clue_id": "clue_evelyn_motive",
+      "title": "The Disinheritance Codicil",
+      "category": "testimony",
+      "summary": "Cornered by the crimson silk thread, Evelyn admits being in the Conservatory at 10:45 PM and reveals Arthur planned to disinherit her tonight over her secret gambling debts.",
+      "source_id": "npc_evelyn"
+    }
+  ],
+  "npcs": [
+    {
+      "npc_id": "npc_evelyn",
+      "name": "Evelyn Vance",
+      "role": "Arthur's Niece & Sole Heir",
+      "starting_room_id": "study",
+      "initial_trust": 5,
+      "initial_suspicion": 2,
+      "public_profile": "Poised, impeccably dressed in a black evening gown draped with a crimson silk shawl. She insists her uncle suffered a sudden heart attack.",
+      "private_knowledge": {
+        "alibi": "Claims she was in the upstairs parlor reading from 10:30 PM until she heard a thud in the Study at 11:12 PM.",
+        "persona_instructions": "Speak with composed aristocratic restraint. Deflect suspicion toward Marcus's loud argument with Arthur earlier that evening. Only lose composure if confronted with physical proof linking you to the Conservatory cabinet.",
+        "secrets": [
+          "Arthur discovered today that you secretly mortgaged his rare manuscripts to cover gambling debts and drafted a codicil disinheriting you.",
+          "At 10:45 PM you pried open Clara's cedar cabinet using Arthur's brass letter opener—snagging your crimson silk shawl—and stole a vial of cherry-laurel extract.",
+          "At 11:02 PM you slipped the poison into Arthur's Earl Grey while he stepped into the hallway. You wiped the letter opener and hid the empty vial when the lights went out at 11:05 PM."
+        ],
+        "knowledge_graph": {
+          "arthur_vance": "Controlling uncle who was about to ruin my life tonight.",
+          "marcus_sterling": "Had a furious argument with Arthur before dinner; a convenient scapegoat.",
+          "clara_thorne": "Keeps botanical extracts in the Conservatory; careless with her cabinet key."
+        }
+      },
+      "evidence_reactions": {
+        "clue_broken_vial_clasp": {
+          "unlocks_clue_id": "clue_evelyn_motive",
+          "trust_delta": -3,
+          "suspicion_delta": 4,
+          "reaction_guidance": "Your poise fractures when shown the crimson silk thread from the pried cabinet. Admit you were in the Conservatory at 10:45 PM and blurt out that Arthur threatened to disinherit you tonight over your debts—but vehemently deny poisoning his tea and try to pivot blame to Marcus for cutting the lights."
+        }
+      }
+    },
+    {
+      "npc_id": "npc_clara",
+      "name": "Dr. Clara Thorne",
+      "role": "Family Physician & Botanist",
+      "starting_room_id": "conservatory",
+      "initial_trust": 5,
+      "initial_suspicion": 2,
+      "public_profile": "Crisp, observant, wearing a grey wool cardigan with a small bandage on her left palm. She maintains Arthur's heart was fragile.",
+      "private_knowledge": {
+        "alibi": "Was alone in the Conservatory from 10:50 PM to 11:15 PM tending specimens and bandaging a cut from pruning shears.",
+        "persona_instructions": "Clinical, cautious, and protective of your medical reputation. Initially insist Arthur died of cardiac arrest because you fear being blamed if anyone learns you distill cherry-laurel extract.",
+        "secrets": [
+          "You distill concentrated cherry-laurel (cyanide) extract for botanical pest studies and keep it in the cedar cabinet.",
+          "You noticed the resin on a fresh dose oxidizes dark green within 20 minutes—meaning a poisoned cup would have been dosed between 11:00 and 11:10 PM.",
+          "Through the glass Conservatory door at 11:05 PM, you saw a figure in a dark coat hurrying from the Study toward the Cellar stairs right before the Study lights died."
+        ],
+        "knowledge_graph": {
+          "arthur_vance": "Longtime patient; his heart was mildly weak, not fatal.",
+          "evelyn_vance": "Seemed unusually tense at dinner and wears a distinctive crimson silk shawl.",
+          "marcus_sterling": "Wears a dark overcoat and seemed desperate during his meeting with Arthur."
+        }
+      },
+      "evidence_reactions": {
+        "clue_poisoned_teacup": {
+          "unlocks_clue_id": "clue_clara_testimony",
+          "trust_delta": 2,
+          "suspicion_delta": -1,
+          "reaction_guidance": "Realize the heart-attack story is dead. Drop your defensiveness, confirm the bitter-almond scent and green laurel resin mean cyanide dosed between 11:00 and 11:10 PM, and volunteer that at 11:05 PM you saw someone in a dark coat hurry from the Study toward the Cellar."
+        }
+      }
+    },
+    {
+      "npc_id": "npc_marcus",
+      "name": "Marcus Sterling",
+      "role": "Arthur's Business Partner",
+      "starting_room_id": "cellar",
+      "initial_trust": 4,
+      "initial_suspicion": 3,
+      "public_profile": "Sweating slightly in a dark wool overcoat, pacing near the cellar steps. Claims he only came downstairs to check the fuses after the lights flickered.",
+      "private_knowledge": {
+        "alibi": "Claims the Study lights failed on their own at 11:05 PM and he immediately went down to the Cellar to reset the breaker.",
+        "persona_instructions": "Defensive, blunt, and irritable. Hide your embezzlement at all costs unless confronted with documentary proof. You did NOT murder Arthur.",
+        "secrets": [
+          "You embezzled $50,000 from Vance Imports using forged invoices; Arthur confronted you before dinner and locked the invoices in his Study.",
+          "At 11:05 PM you deliberately tripped the Study breaker in the Cellar—wedging it with a crumpled invoice—so you could slip back into the dark Study and steal the ledger.",
+          "When you crept to the Study doorway at 11:08 PM, Arthur was already choking on the floor while Evelyn stood over his desk wiping the brass letter opener and tucking a small glass vial into her sleeve. You panicked and retreated to the Cellar."
+        ],
+        "knowledge_graph": {
+          "arthur_vance": "Threatened to call the police about the forged invoices tomorrow morning.",
+          "evelyn_vance": "Saw her standing over Arthur at 11:08 PM with a glass vial and letter opener—too terrified of exposing my own theft to speak up voluntarily.",
+          "clara_thorne": "Barely spoke to her tonight; she stayed in the Conservatory."
+        }
+      },
+      "evidence_reactions": {
+        "clue_jammed_breaker": {
+          "unlocks_clue_id": "clue_marcus_testimony",
+          "trust_delta": 1,
+          "suspicion_delta": 2,
+          "reaction_guidance": "Realize you are caught red-handed on the blackout and fraud. Confess immediately to sabotaging the breaker at 11:05 PM to steal your forged invoices, then desperately tell the detective what you actually witnessed at 11:08 PM: Arthur already gasping on the floor while Evelyn wiped the brass letter opener and slipped a glass vial into her sleeve."
+        }
+      }
+    }
+  ],
+  "solution": {
+    "culprit_id": "npc_evelyn",
+    "required_clue_ids": [
+      "clue_poisoned_teacup",
+      "clue_broken_vial_clasp",
+      "clue_marcus_testimony",
+      "clue_evelyn_motive"
+    ],
+    "summary": "Evelyn Vance poisoned Arthur's Earl Grey with cherry-laurel cyanide stolen from Dr. Thorne's cabinet using the brass letter opener, motivated by Arthur's plan to disinherit her over gambling debts. Marcus's blackout sabotage was an independent attempt to hide embezzlement—and inadvertently made him the eyewitness who caught Evelyn with the vial."
+  }
+}
